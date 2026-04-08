@@ -2153,6 +2153,74 @@
         <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
         <rdfs:label>Yellow Group</rdfs:label>
     </owl:NamedIndividual>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Seed Player Individuals for CLI Testing
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- https://example.org/monopoly#PlayerAlice -->
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PlayerAlice">
+        <rdf:type rdf:resource="https://example.org/monopoly#RegularPlayer"/>
+        <mon:owns rdf:resource="https://example.org/monopoly#MediterraneanAvenue"/>
+        <mon:owns rdf:resource="https://example.org/monopoly#BalticAvenue"/>
+        <mon:hasMonopoly rdf:resource="https://example.org/monopoly#BrownGroup"/>
+        <mon:currentSpace rdf:resource="https://example.org/monopoly#Go"/>
+        <mon:cashBalance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1500</mon:cashBalance>
+        <mon:isInJail rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isInJail>
+        <mon:isBankrupt rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBankrupt>
+        <rdfs:label>Player Alice</rdfs:label>
+    </owl:NamedIndividual>
+
+    <!-- https://example.org/monopoly#PlayerBob -->
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PlayerBob">
+        <rdf:type rdf:resource="https://example.org/monopoly#RegularPlayer"/>
+        <mon:owns rdf:resource="https://example.org/monopoly#Boardwalk"/>
+        <mon:owns rdf:resource="https://example.org/monopoly#ParkPlace"/>
+        <mon:hasMonopoly rdf:resource="https://example.org/monopoly#DarkBlueGroup"/>
+        <mon:currentSpace rdf:resource="https://example.org/monopoly#Jail"/>
+        <mon:cashBalance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</mon:cashBalance>
+        <mon:isInJail rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isInJail>
+        <mon:isBankrupt rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBankrupt>
+        <rdfs:label>Player Bob</rdfs:label>
+    </owl:NamedIndividual>
+
+    <!-- https://example.org/monopoly#PlayerCharlie -->
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PlayerCharlie">
+        <rdf:type rdf:resource="https://example.org/monopoly#RegularPlayer"/>
+        <mon:owns rdf:resource="https://example.org/monopoly#ReadingRailroad"/>
+        <mon:currentSpace rdf:resource="https://example.org/monopoly#FreeParking"/>
+        <mon:cashBalance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</mon:cashBalance>
+        <mon:isInJail rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isInJail>
+        <mon:isBankrupt rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBankrupt>
+        <rdfs:label>Player Charlie</rdfs:label>
+    </owl:NamedIndividual>
+
+    <!-- Example mortgage / inverse ownership state -->
+    <rdf:Description rdf:about="https://example.org/monopoly#ReadingRailroad">
+        <mon:belongsTo rdf:resource="https://example.org/monopoly#PlayerCharlie"/>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isMortgaged>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://example.org/monopoly#MediterraneanAvenue">
+        <mon:belongsTo rdf:resource="https://example.org/monopoly#PlayerAlice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://example.org/monopoly#BalticAvenue">
+        <mon:belongsTo rdf:resource="https://example.org/monopoly#PlayerAlice"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://example.org/monopoly#Boardwalk">
+        <mon:belongsTo rdf:resource="https://example.org/monopoly#PlayerBob"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="https://example.org/monopoly#ParkPlace">
+        <mon:belongsTo rdf:resource="https://example.org/monopoly#PlayerBob"/>
+    </rdf:Description>
+
 </rdf:RDF>
 
 
