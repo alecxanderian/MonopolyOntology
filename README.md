@@ -1,2 +1,6 @@
 # ProjectCS455
-Ontology Project / Neural Network 
+Ontology Project - Monopoly Game
+
+Current packages required:
+
+Python: owlready2

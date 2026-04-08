@@ -1,0 +1,2161 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://example.org/monopoly#MonopolyOntology#"
+     xml:base="https://example.org/monopoly#MonopolyOntology"
+     xmlns:mon="https://example.org/monopoly#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://example.org/monopoly#MonopolyOntology">
+        <rdfs:label>Monopoly Board Game Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.org/monopoly#bankHolds -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#bankHolds">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Bank"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:comment>Spaces currently held by the bank.</rdfs:comment>
+        <rdfs:label>bankHolds</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#belongsTo">
+        <owl:inverseOf rdf:resource="https://example.org/monopoly#owns"/>
+        <rdfs:domain rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:comment>Inverse of owns.</rdfs:comment>
+        <rdfs:label>belongsTo</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#currentSpace -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#currentSpace">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:comment>The space where a player currently is located.</rdfs:comment>
+        <rdfs:label>currentSpace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#deedForProperty -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#deedForProperty">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:comment>Relates a title deed to the space it represents.</rdfs:comment>
+        <rdfs:label>deedForProperty</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#drawsCard -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#drawsCard">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Card"/>
+        <rdfs:label>drawsCard</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#forSpace -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#forSpace">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:label>forSpace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hasBuilding -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#hasBuilding">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Building"/>
+        <rdfs:comment>Buildings placed on a buildable property.</rdfs:comment>
+        <rdfs:label>hasBuilding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hasMonopoly -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#hasMonopoly">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:comment>Represents that a player controls a complete set.</rdfs:comment>
+        <rdfs:label>hasMonopoly</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hasPayee -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#hasPayee">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>hasPayee</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hasPayer -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#hasPayer">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>hasPayer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hasSpace -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#hasSpace">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Board"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:comment>Links the Monopoly board to the spaces on the board.</rdfs:comment>
+        <rdfs:label>hasSpace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hasTitleDeed -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#hasTitleDeed">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <rdfs:comment>A title deed currently held by a player.</rdfs:comment>
+        <rdfs:label>hasTitleDeed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#memberOfGroup -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#memberOfGroup">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:comment>Relates a property, railroad, or utility to its set or color group.</rdfs:comment>
+        <rdfs:label>memberOfGroup</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#nextSpace -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#nextSpace">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:comment>Circular ordering of the board spaces.</rdfs:comment>
+        <rdfs:label>nextSpace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#nextTurn -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#nextTurn">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Turn"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Turn"/>
+        <rdfs:label>nextTurn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#owns -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#owns">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:comment>Relates a player to a property, railroad, or utility the player owns.</rdfs:comment>
+        <rdfs:label>owns</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#sendsToJail -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#sendsToJail">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#GoToJailSpace"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#JailSpace"/>
+        <rdfs:comment>Go To Jail sends the player to Jail.</rdfs:comment>
+        <rdfs:label>sendsToJail</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#triggeredByCard -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#triggeredByCard">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Card"/>
+        <rdfs:label>triggeredByCard</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/monopoly#turnOf -->
+
+    <owl:ObjectProperty rdf:about="https://example.org/monopoly#turnOf">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Turn"/>
+        <rdfs:range rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:label>turnOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.org/monopoly#amount -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#amount">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>amount</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#baseRent -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#baseRent">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>baseRent</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#cashBalance -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#cashBalance">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>cashBalance</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#groupSize -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#groupSize">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>groupSize</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#hotelCost -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#hotelCost">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>hotelCost</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#houseCost -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#houseCost">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>houseCost</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#isBankrupt -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#isBankrupt">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label>isBankrupt</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#isBuildable -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#isBuildable">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label>isBuildable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#isInJail -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#isInJail">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label>isInJail</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#isMortgaged -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#isMortgaged">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label>isMortgaged</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#isPurchasable -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#isPurchasable">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label>isPurchasable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#mortgageValue -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#mortgageValue">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>mortgageValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#ownedCount -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#ownedCount">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>ownedCount</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#purchasePrice -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#purchasePrice">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>purchasePrice</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/monopoly#spaceNumber -->
+
+    <owl:DatatypeProperty rdf:about="https://example.org/monopoly#spaceNumber">
+        <rdfs:domain rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>spaceNumber</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.org/monopoly#AuctionSale -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#AuctionSale">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:label>AuctionSale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Bank -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Bank">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Bank</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#BankerPlayer -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#BankerPlayer">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:label>Banker-Role Player</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Board -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Board">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Board</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Building -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Building">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Building</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Card -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Card">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Card</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#ChanceCard -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#ChanceCard">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Card"/>
+        <rdfs:label>ChanceCard</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#ChanceSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#ChanceSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>ChanceSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#ColorGroup -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#ColorGroup">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:label>ColorGroup</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#CommunityChestCard -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#CommunityChestCard">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Card"/>
+        <rdfs:label>CommunityChestCard</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#CommunityChestSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#CommunityChestSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>CommunityChestSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#FreeParkingSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#FreeParkingSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>FreeParkingSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#GameEntity -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#GameEntity">
+        <rdfs:comment>Top-level class for Monopoly game entities.</rdfs:comment>
+        <rdfs:label>GameEntity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#GetOutOfJailFreeCard -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#GetOutOfJailFreeCard">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Card"/>
+        <rdfs:label>GetOutOfJailFreeCard</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#GoSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#GoSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>GoSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#GoToJailSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#GoToJailSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>GoToJailSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Hotel -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Hotel">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Building"/>
+        <rdfs:label>Hotel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#House -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#House">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Building"/>
+        <rdfs:label>House</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#IncomeTaxSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#IncomeTaxSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>IncomeTaxSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#JailSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#JailSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>JailSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#LuxuryTaxSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#LuxuryTaxSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>LuxuryTaxSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#MortgageTransaction -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#MortgageTransaction">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:label>MortgageTransaction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#OwnableSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#OwnableSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Space"/>
+        <rdfs:comment>A space that may be owned or managed by the bank.</rdfs:comment>
+        <rdfs:label>OwnableSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Player -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Player">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Player</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#PropertyGroup -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#PropertyGroup">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>PropertyGroup</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#PropertyPurchase -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#PropertyPurchase">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:label>PropertyPurchase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#PropertySale -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#PropertySale">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:label>PropertySale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#PropertySpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#PropertySpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>PropertySpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#RailroadGroup -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#RailroadGroup">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:label>RailroadGroup</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#RailroadSpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#RailroadSpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>RailroadSpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#RegularPlayer -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#RegularPlayer">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Player"/>
+        <rdfs:label>RegularPlayer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#RentPayment -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#RentPayment">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:label>RentPayment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Space -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Space">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Space</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#TaxPayment -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#TaxPayment">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#Transaction"/>
+        <rdfs:label>TaxPayment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#TitleDeed -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#TitleDeed">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>TitleDeed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Transaction -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Transaction">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Transaction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#Turn -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#Turn">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#GameEntity"/>
+        <rdfs:label>Turn</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#UtilityGroup -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#UtilityGroup">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#PropertyGroup"/>
+        <rdfs:label>UtilityGroup</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/monopoly#UtilitySpace -->
+
+    <owl:Class rdf:about="https://example.org/monopoly#UtilitySpace">
+        <rdfs:subClassOf rdf:resource="https://example.org/monopoly#OwnableSpace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isBuildable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/monopoly#isPurchasable"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>UtilitySpace</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://example.org/monopoly#AtlanticAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#AtlanticAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#YellowGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#VentnorAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">260</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</mon:spaceNumber>
+        <rdfs:label>Atlantic Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#AtlanticAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#AtlanticAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#AtlanticAvenue"/>
+        <rdfs:label>Atlantic Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#BORailroad -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#BORailroad">
+        <rdf:type rdf:resource="https://example.org/monopoly#RailroadSpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RailroadSet"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#AtlanticAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</mon:baseRent>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</mon:spaceNumber>
+        <rdfs:label>B. &amp; O. Railroad</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#BORailroadDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#BORailroadDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#BORailroad"/>
+        <rdfs:label>B. &amp; O. Railroad Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#BalticAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#BalticAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#BrownGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#IncomeTax"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:spaceNumber>
+        <rdfs:label>Baltic Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#BalticAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#BalticAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#BalticAvenue"/>
+        <rdfs:label>Baltic Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#Boardwalk -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#Boardwalk">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#DarkBlueGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#Go"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</mon:spaceNumber>
+        <rdfs:label>Boardwalk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#BoardwalkDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#BoardwalkDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#Boardwalk"/>
+        <rdfs:label>Boardwalk Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#BrownGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#BrownGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</mon:groupSize>
+        <rdfs:label>Brown Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#Chance1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#Chance1">
+        <rdf:type rdf:resource="https://example.org/monopoly#ChanceSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#VermontAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</mon:spaceNumber>
+        <rdfs:label>Chance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#Chance2 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#Chance2">
+        <rdf:type rdf:resource="https://example.org/monopoly#ChanceSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#IndianaAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</mon:spaceNumber>
+        <rdfs:label>Chance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#Chance3 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#Chance3">
+        <rdf:type rdf:resource="https://example.org/monopoly#ChanceSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#ParkPlace"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</mon:spaceNumber>
+        <rdfs:label>Chance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ClassicMonopolyBoard -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ClassicMonopolyBoard">
+        <rdf:type rdf:resource="https://example.org/monopoly#Board"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#AtlanticAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#BORailroad"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#BalticAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#Boardwalk"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#Chance1"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#Chance2"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#Chance3"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#CommunityChest1"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#CommunityChest2"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#CommunityChest3"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#ConnecticutAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#ElectricCompany"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#FreeParking"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#Go"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#GoToJail"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#IllinoisAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#IncomeTax"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#IndianaAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#Jail"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#KentuckyAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#LuxuryTax"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#MarvinGardens"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#MediterraneanAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#NewYorkAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#NorthCarolinaAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#OrientalAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#PacificAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#ParkPlace"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#PennsylvaniaAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#PennsylvaniaRailroad"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#ReadingRailroad"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#ShortLine"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#StCharlesPlace"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#StJamesPlace"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#StatesAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#TennesseeAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#VentnorAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#VermontAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#VirginiaAvenue"/>
+        <mon:hasSpace rdf:resource="https://example.org/monopoly#WaterWorks"/>
+        <rdfs:label>Classic Monopoly Board</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CommunityChest1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CommunityChest1">
+        <rdf:type rdf:resource="https://example.org/monopoly#CommunityChestSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#BalticAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</mon:spaceNumber>
+        <rdfs:label>Community Chest</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CommunityChest2 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CommunityChest2">
+        <rdf:type rdf:resource="https://example.org/monopoly#CommunityChestSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#TennesseeAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</mon:spaceNumber>
+        <rdfs:label>Community Chest</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CommunityChest3 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CommunityChest3">
+        <rdf:type rdf:resource="https://example.org/monopoly#CommunityChestSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#PennsylvaniaAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</mon:spaceNumber>
+        <rdfs:label>Community Chest</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion1 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion1">
+        <rdfs:comment>What properties are owned by a specific player?</rdfs:comment>
+        <rdfs:label>Competency Question 1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion2 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion2">
+        <rdfs:comment>Which players own all properties within a color group?</rdfs:comment>
+        <rdfs:label>Competency Question 2</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion3 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion3">
+        <rdfs:comment>Which properties can have housing on it?</rdfs:comment>
+        <rdfs:label>Competency Question 3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion4 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion4">
+        <rdfs:comment>Which players have a monopoly on a property set?</rdfs:comment>
+        <rdfs:label>Competency Question 4</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion5 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion5">
+        <rdfs:comment>How much rent must be paid when landing on a property?</rdfs:comment>
+        <rdfs:label>Competency Question 5</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion6 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion6">
+        <rdfs:comment>Which players are in jail?</rdfs:comment>
+        <rdfs:label>Competency Question 6</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion7 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion7">
+        <rdfs:comment>Which players are bankrupt?</rdfs:comment>
+        <rdfs:label>Competency Question 7</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion8 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion8">
+        <rdfs:comment>Which properties are mortgaged?</rdfs:comment>
+        <rdfs:label>Competency Question 8</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#CompetencyQuestion9 -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#CompetencyQuestion9">
+        <rdfs:comment>Which properties can be purchased?</rdfs:comment>
+        <rdfs:label>Competency Question 9</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ConnecticutAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ConnecticutAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#LightBlueGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#Jail"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</mon:spaceNumber>
+        <rdfs:label>Connecticut Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ConnecticutAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ConnecticutAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#ConnecticutAvenue"/>
+        <rdfs:label>Connecticut Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#DarkBlueGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#DarkBlueGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</mon:groupSize>
+        <rdfs:label>Dark Blue Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ElectricCompany -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ElectricCompany">
+        <rdf:type rdf:resource="https://example.org/monopoly#UtilitySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#UtilitySet"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#StatesAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</mon:spaceNumber>
+        <rdfs:label>Electric Company</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ElectricCompanyDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ElectricCompanyDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#ElectricCompany"/>
+        <rdfs:label>Electric Company Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#FreeParking -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#FreeParking">
+        <rdf:type rdf:resource="https://example.org/monopoly#FreeParkingSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#KentuckyAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</mon:spaceNumber>
+        <rdfs:label>Free Parking</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#Go -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#Go">
+        <rdf:type rdf:resource="https://example.org/monopoly#GoSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#MediterraneanAvenue"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</mon:spaceNumber>
+        <rdfs:label>Go</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#GoToJail -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#GoToJail">
+        <rdf:type rdf:resource="https://example.org/monopoly#GoToJailSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#PacificAvenue"/>
+        <mon:sendsToJail rdf:resource="https://example.org/monopoly#Jail"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</mon:spaceNumber>
+        <rdfs:label>Go To Jail</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#GreenGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#GreenGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
+        <rdfs:label>Green Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#IllinoisAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#IllinoisAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RedGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#BORailroad"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</mon:spaceNumber>
+        <rdfs:label>Illinois Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#IllinoisAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#IllinoisAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#IllinoisAvenue"/>
+        <rdfs:label>Illinois Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#IncomeTax -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#IncomeTax">
+        <rdf:type rdf:resource="https://example.org/monopoly#IncomeTaxSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#ReadingRailroad"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</mon:spaceNumber>
+        <rdfs:label>Income Tax</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#IndianaAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#IndianaAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RedGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#IllinoisAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</mon:spaceNumber>
+        <rdfs:label>Indiana Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#IndianaAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#IndianaAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#IndianaAvenue"/>
+        <rdfs:label>Indiana Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#Jail -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#Jail">
+        <rdf:type rdf:resource="https://example.org/monopoly#JailSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#StCharlesPlace"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</mon:spaceNumber>
+        <rdfs:label>Jail / Just Visiting</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#KentuckyAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#KentuckyAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RedGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#Chance2"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</mon:spaceNumber>
+        <rdfs:label>Kentucky Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#KentuckyAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#KentuckyAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#KentuckyAvenue"/>
+        <rdfs:label>Kentucky Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#LightBlueGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#LightBlueGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
+        <rdfs:label>Light Blue Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#LuxuryTax -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#LuxuryTax">
+        <rdf:type rdf:resource="https://example.org/monopoly#LuxuryTaxSpace"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#Boardwalk"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isPurchasable>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</mon:spaceNumber>
+        <rdfs:label>Luxury Tax</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#MarvinGardens -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#MarvinGardens">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#YellowGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#GoToJail"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">280</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</mon:spaceNumber>
+        <rdfs:label>Marvin Gardens</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#MarvinGardensDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#MarvinGardensDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#MarvinGardens"/>
+        <rdfs:label>Marvin Gardens Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#MediterraneanAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#MediterraneanAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#BrownGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#CommunityChest1"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</mon:spaceNumber>
+        <rdfs:label>Mediterranean Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#MediterraneanAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#MediterraneanAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#MediterraneanAvenue"/>
+        <rdfs:label>Mediterranean Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#MonopolyBank -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#MonopolyBank">
+        <rdf:type rdf:resource="https://example.org/monopoly#Bank"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#AtlanticAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#BORailroad"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#BalticAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#Boardwalk"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#ConnecticutAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#ElectricCompany"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#IllinoisAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#IndianaAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#KentuckyAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#MarvinGardens"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#MediterraneanAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#NewYorkAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#NorthCarolinaAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#OrientalAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#PacificAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#ParkPlace"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#PennsylvaniaAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#PennsylvaniaRailroad"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#ReadingRailroad"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#ShortLine"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#StCharlesPlace"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#StJamesPlace"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#StatesAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#TennesseeAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#VentnorAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#VermontAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#VirginiaAvenue"/>
+        <mon:bankHolds rdf:resource="https://example.org/monopoly#WaterWorks"/>
+        <rdfs:label>Monopoly Bank</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#NewYorkAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#NewYorkAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#OrangeGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#FreeParking"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</mon:spaceNumber>
+        <rdfs:label>New York Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#NewYorkAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#NewYorkAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#NewYorkAvenue"/>
+        <rdfs:label>New York Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#NorthCarolinaAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#NorthCarolinaAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#GreenGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#CommunityChest3"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</mon:spaceNumber>
+        <rdfs:label>North Carolina Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#NorthCarolinaAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#NorthCarolinaAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#NorthCarolinaAvenue"/>
+        <rdfs:label>North Carolina Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#OrangeGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#OrangeGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
+        <rdfs:label>Orange Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#OrientalAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#OrientalAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#LightBlueGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#Chance1"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</mon:spaceNumber>
+        <rdfs:label>Oriental Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#OrientalAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#OrientalAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#OrientalAvenue"/>
+        <rdfs:label>Oriental Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PacificAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PacificAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#GreenGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#NorthCarolinaAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</mon:spaceNumber>
+        <rdfs:label>Pacific Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PacificAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PacificAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#PacificAvenue"/>
+        <rdfs:label>Pacific Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ParkPlace -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ParkPlace">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#DarkBlueGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#LuxuryTax"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">175</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">350</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</mon:spaceNumber>
+        <rdfs:label>Park Place</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ParkPlaceDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ParkPlaceDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#ParkPlace"/>
+        <rdfs:label>Park Place Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PennsylvaniaAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PennsylvaniaAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#GreenGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#ShortLine"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">320</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</mon:spaceNumber>
+        <rdfs:label>Pennsylvania Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PennsylvaniaAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PennsylvaniaAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#PennsylvaniaAvenue"/>
+        <rdfs:label>Pennsylvania Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PennsylvaniaRailroad -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PennsylvaniaRailroad">
+        <rdf:type rdf:resource="https://example.org/monopoly#RailroadSpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RailroadSet"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#StJamesPlace"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</mon:baseRent>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</mon:spaceNumber>
+        <rdfs:label>Pennsylvania Railroad</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PennsylvaniaRailroadDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PennsylvaniaRailroadDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#PennsylvaniaRailroad"/>
+        <rdfs:label>Pennsylvania Railroad Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#PinkGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#PinkGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
+        <rdfs:label>Pink Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#RailroadSet -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#RailroadSet">
+        <rdf:type rdf:resource="https://example.org/monopoly#RailroadGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</mon:groupSize>
+        <rdfs:label>Railroad Set</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ReadingRailroad -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ReadingRailroad">
+        <rdf:type rdf:resource="https://example.org/monopoly#RailroadSpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RailroadSet"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#OrientalAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</mon:baseRent>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</mon:spaceNumber>
+        <rdfs:label>Reading Railroad</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ReadingRailroadDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ReadingRailroadDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#ReadingRailroad"/>
+        <rdfs:label>Reading Railroad Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#RedGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#RedGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
+        <rdfs:label>Red Group</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ShortLine -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ShortLine">
+        <rdf:type rdf:resource="https://example.org/monopoly#RailroadSpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#RailroadSet"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#Chance3"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</mon:baseRent>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</mon:spaceNumber>
+        <rdfs:label>Short Line</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#ShortLineDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#ShortLineDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#ShortLine"/>
+        <rdfs:label>Short Line Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#StCharlesPlace -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#StCharlesPlace">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#PinkGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#ElectricCompany"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</mon:spaceNumber>
+        <rdfs:label>St. Charles Place</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#StCharlesPlaceDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#StCharlesPlaceDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#StCharlesPlace"/>
+        <rdfs:label>St. Charles Place Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#StJamesPlace -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#StJamesPlace">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#OrangeGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#CommunityChest2"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</mon:spaceNumber>
+        <rdfs:label>St. James Place</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#StJamesPlaceDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#StJamesPlaceDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#StJamesPlace"/>
+        <rdfs:label>St. James Place Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#StatesAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#StatesAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#PinkGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#VirginiaAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</mon:spaceNumber>
+        <rdfs:label>States Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#StatesAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#StatesAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#StatesAvenue"/>
+        <rdfs:label>States Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#TennesseeAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#TennesseeAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#OrangeGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#NewYorkAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</mon:spaceNumber>
+        <rdfs:label>Tennessee Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#TennesseeAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#TennesseeAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#TennesseeAvenue"/>
+        <rdfs:label>Tennessee Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#UtilitySet -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#UtilitySet">
+        <rdf:type rdf:resource="https://example.org/monopoly#UtilityGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</mon:groupSize>
+        <rdfs:label>Utility Set</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#VentnorAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#VentnorAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#YellowGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#WaterWorks"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">260</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</mon:spaceNumber>
+        <rdfs:label>Ventnor Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#VentnorAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#VentnorAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#VentnorAvenue"/>
+        <rdfs:label>Ventnor Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#VermontAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#VermontAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#LightBlueGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#ConnecticutAvenue"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</mon:spaceNumber>
+        <rdfs:label>Vermont Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#VermontAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#VermontAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#VermontAvenue"/>
+        <rdfs:label>Vermont Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#VirginiaAvenue -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#VirginiaAvenue">
+        <rdf:type rdf:resource="https://example.org/monopoly#PropertySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#PinkGroup"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#PennsylvaniaRailroad"/>
+        <mon:baseRent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</mon:baseRent>
+        <mon:hotelCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:hotelCost>
+        <mon:houseCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</mon:houseCost>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</mon:spaceNumber>
+        <rdfs:label>Virginia Avenue</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#VirginiaAvenueDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#VirginiaAvenueDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#VirginiaAvenue"/>
+        <rdfs:label>Virginia Avenue Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#WaterWorks -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#WaterWorks">
+        <rdf:type rdf:resource="https://example.org/monopoly#UtilitySpace"/>
+        <mon:memberOfGroup rdf:resource="https://example.org/monopoly#UtilitySet"/>
+        <mon:nextSpace rdf:resource="https://example.org/monopoly#MarvinGardens"/>
+        <mon:isBuildable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isBuildable>
+        <mon:isMortgaged rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</mon:isMortgaged>
+        <mon:isPurchasable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</mon:isPurchasable>
+        <mon:mortgageValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</mon:mortgageValue>
+        <mon:purchasePrice rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</mon:purchasePrice>
+        <mon:spaceNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</mon:spaceNumber>
+        <rdfs:label>Water Works</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#WaterWorksDeed -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#WaterWorksDeed">
+        <rdf:type rdf:resource="https://example.org/monopoly#TitleDeed"/>
+        <mon:deedForProperty rdf:resource="https://example.org/monopoly#WaterWorks"/>
+        <rdfs:label>Water Works Title Deed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/monopoly#YellowGroup -->
+
+    <owl:NamedIndividual rdf:about="https://example.org/monopoly#YellowGroup">
+        <rdf:type rdf:resource="https://example.org/monopoly#ColorGroup"/>
+        <mon:groupSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</mon:groupSize>
+        <rdfs:label>Yellow Group</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
