@@ -61,7 +61,15 @@ def format_list(items):
 
 
 def get_class(onto, class_name):
-    return getattr(onto, class_name, None)
+    cls = getattr(onto, class_name, None)
+    if cls is not None:
+        return cls
+
+    for c in onto.classes():
+        if getattr(c, "name", "") == class_name:
+            return c
+
+    return None
 
 
 def get_player_by_name(onto, player_name):
